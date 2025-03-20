@@ -28,7 +28,7 @@ Delete your project's current **README.md** file (the one you're reading right n
 
 ## You must do the following to receive full credit:
 1. Create your report in the ``README.md`` and push it to your repo.
-2. In the report, you must include your (and your partner's) full name in addition to any collaborators.
+2. In the report, you must include your (and your group members') full name in addition to any collaborators.
 3. Submit a link to your repo in the Canvas assignment.
 
 ## Late submission penalties
