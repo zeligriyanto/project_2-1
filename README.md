@@ -1,11 +1,11 @@
-# Large Scale Data Processing: Project 2
+Zelig Riyanto, Reif Birzin, Olivia McCarty
 ## Getting started
 Head to [Project 1](https://github.com/CSCI3390Spring2025/project_1) if you're looking for information on Git, template repositories, or setting up your local/remote environments.
 
 ## Resilient distributed datasets in Spark
 This project will familiarize you with RDD manipulations by implementing some of the sketching algorithms the course has covered thus far.  
 
-You have been provided with the program's skeleton, which consists of 5 functions for computing either F0 or F2: the BJKST, tidemark, tug-of-war, exact F0, and exact F2 algorithms. The tidemark and exact F0 functions are given for your reference.
+You have been provided with the program's skeleton, which consists of 5 functionss for computing either F0 or F2: the BJKST, tidemark, tug-of-war, exact F0, and exact F2 algorithms. The tidemark and exact F0 functions are given for your reference.
 
 ## Relevant data
 
