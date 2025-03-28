@@ -1,22 +1,4 @@
 Zelig Riyanto, Reif Birzin, Olivia McCarty
-## Getting started
-Head to [Project 1](https://github.com/CSCI3390Spring2025/project_1) if you're looking for information on Git, template repositories, or setting up your local/remote environments.
-
-## Resilient distributed datasets in Spark
-This project will familiarize you with RDD manipulations by implementing some of the sketching algorithms the course has covered thus far.  
-
-You have been provided with the program's skeleton, which consists of 5 functionss for computing either F0 or F2: the BJKST, tidemark, tug-of-war, exact F0, and exact F2 algorithms. The tidemark and exact F0 functions are given for your reference.
-
-## Relevant data
-
-You can find the TAR file containing `2014to2017.csv` [here](https://drive.google.com/file/d/1MtCimcVKN6JrK2sLy4GbjeS7E2a-UMA0/view?usp=sharing). Download and expand the TAR file for local processing. For processing in the cloud, refer to the steps for creating a storage bucket in [Project 1](https://github.com/CSCI3390Spring2025/project_1) and upload `2014to2017.csv`.
-
-`2014to2017.csv` contains the records of parking tickets issued in New York City from 2014 to 2017. You'll see that the data has been cleaned so that only the license plate information remains. Keep in mind that a single car can receive multiple tickets within that period and therefore appear in multiple records.  
-
-**Hint**: while implementing the functions, it may be helpful to copy 100 records or so to a new file and use that file for faster testing.  
-
-## Calculating and reporting your findings
-You'll be submitting a report along with your code that provides commentary on the tasks below.  
 
 1. **(3 points)** 
 ExactF2
