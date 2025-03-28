@@ -13,6 +13,7 @@ BJKST
 Local Results: Bucket Size: 25, Trials: 5, Time elapsed:402s. Estimate: 6553600
 
 GCP Results: Bucket Size: 25, Trials: 5, Time elapsed:172s, Estimate: 6291456
+
 4. **(1 point)** Compare the BJKST algorithm to the exact F0 algorithm and the tug-of-war algorithm to the exact F2 algorithm. Summarize your findings.
 
 BJKST: Bucket Size: 25, Trials: 5, Time elapsed:172s, Estimate: 6291456
