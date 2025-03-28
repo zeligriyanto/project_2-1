@@ -18,18 +18,27 @@ You can find the TAR file containing `2014to2017.csv` [here](https://drive.googl
 ## Calculating and reporting your findings
 You'll be submitting a report along with your code that provides commentary on the tasks below.  
 
-1. **(3 points)** Implement the `exact_F2` function. The function accepts an RDD of strings as an input. The output should be exactly `F2 = sum(Fs^2)`, where `Fs` is the number of occurrences of plate `s` and the sum is taken over all plates. This can be achieved in one line using the `map` and `reduceByKey` methods of the RDD class. Run `exact_F2` locally **and** on GCP with 1 driver and 4 machines having 2 x N1 cores. Copy the results to your report. Terminate the program if it runs for longer than 30 minutes.
-2. **(3 points)** Implement the `Tug_of_War` function. The function accepts an RDD of strings, a parameter `width`, and a parameter `depth` as inputs. It should run `width * depth` Tug-of-War sketches, group the outcomes into groups of size `width`, compute the means of each group, and then return the median of the `depth` means in approximating F2. A 4-universal hash function class `four_universal_Radamacher_hash_function`, which generates a hash function from a 4-universal family, has been provided for you. The generated function `hash(s: String)` will hash a string to 1 or -1, each with a probability of 50%. Once you've implemented the function, set `width` to 10 and `depth` to 3. Run `Tug_of_War` locally **and** on GCP with 1 driver and 4 machines having 2 x N1 cores. Copy the results to your report. Terminate the program if it runs for longer than 30 minutes. **Please note** that the algorithm won't be significantly faster than `exact_F2` since the number of different cars is not large enough for the memory to become a bottleneck. Additionally, computing `width * depth` hash values of the license plate strings requires considerable overhead. That being said, executing with `width = 1` and `depth = 1` should generally still be faster.
-3. **(3 points)** Implement the `BJKST` function. The function accepts an RDD of strings, a parameter `width`, and a parameter `trials` as inputs. `width` denotes the maximum bucket size of each sketch. The function should run `trials` sketches and return the median of the estimates of the sketches. A template of the `BJKSTSketch` class is also included in the sample code. You are welcome to finish its methods and apply that class or write your own class from scratch. A 2-universal hash function class `hash_function(numBuckets_in: Long)` has also been provided and will hash a string to an integer in the range `[0, numBuckets_in - 1]`. Once you've implemented the function, determine the smallest `width` required in order to achieve an error of +/- 20% on your estimate. Keeping `width` at that value, set `depth` to 5. Run `BJKST` locally **and** on GCP with 1 driver and 4 machines having 2 x N1 cores. Copy the results to your report. Terminate the program if it runs for longer than 30 minutes.
+1. **(3 points)** 
+ExactF2
+Local Results: Time elapsed:64s. Estimate: 8567966130
+GCP Results: Time elapsed: 241s. Estimate: 8567966130
+2. **(3 points)** 
+Tug-of-War F2 Approximation
+Local Results: Tug-of-War F2 Approximation. Width :10. Depth: 3. Time elapsed:23s. Estimate: 9185400028
+GCP Results:  Tug-of-War F2 Approximation. Width :10. Depth: 3. Time elapsed:93s. Estimate: 8530379119
+3. **(3 points)** 
+BJKST
+Local Results: Bucket Size: 25, Trials: 5, Time elapsed:402s. Estimate: 6553600
+
+GCP Results: Bucket Size: 25, Trials: 5, Time elapsed:172s, Estimate: 6291456
 4. **(1 point)** Compare the BJKST algorithm to the exact F0 algorithm and the tug-of-war algorithm to the exact F2 algorithm. Summarize your findings.
 
-## Submission via GitHub
-Delete your project's current **README.md** file (the one you're reading right now) and include your report as a new **README.md** file in the project root directory. Have no fear—the README with the project description is always available for reading in the template repository you created your repository from. For more information on READMEs, feel free to visit [this page](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/about-readmes) in the GitHub Docs. You'll be writing in [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown). Be sure that your repository is up to date and you have pushed all changes you've made to the project's code. When you're ready to submit, simply provide the link to your repository in the Canvas assignment's submission.
+BJKST: Bucket Size: 25, Trials: 5, Time elapsed:172s, Estimate: 6291456
+F0: Time Elapsed:196s Estimate: 7406649
 
-## You must do the following to receive full credit:
-1. Create your report in the ``README.md`` and push it to your repo.
-2. In the report, you must include your (and your group members') full name in addition to any collaborators.
-3. Submit a link to your repo in the Canvas assignment.
+The BJKST algorithm provides a faster, but more approximate estimate of the number of distinct element. Given the small bucket size and limited trials, it is underestimated by around 15%. BJKST offers speed and lower memory use at the cost of some accuracy.
 
-## Late submission penalties
-Please refer to the course policy.
+F2 Results: Time elapsed: 241s. Estimate: 8567966130
+Tug-Of-War Results: Time elapsed:93s. Estimate: 8530379119
+
+The tug-of-war is significantly faster than the F2 approximation, so it has much lower computational cost. The estimates only have a 0.44% relative error.
